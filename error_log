@@ -1,0 +1,27 @@
+[06-May-2018 16:57:41 Asia/Jakarta] PHP Parse error:  syntax error, unexpected '<' in /home/lint9212/public_html/application/views/home.php on line 118
+[08-May-2018 15:35:32 Asia/Jakarta] PHP Fatal error:  Call to a member function result() on null in /home/lint9212/public_html/application/views/templates/footer.php on line 92
+[08-May-2018 15:36:28 Asia/Jakarta] PHP Fatal error:  Call to a member function result() on null in /home/lint9212/public_html/application/views/templates/footer.php on line 92
+[08-May-2018 15:38:17 Asia/Jakarta] PHP Fatal error:  Call to a member function result() on null in /home/lint9212/public_html/application/views/templates/footer.php on line 92
+[09-May-2018 04:22:15 Asia/Jakarta] PHP Fatal error:  Call to a member function result() on null in /home/lint9212/public_html/application/views/templates/footer.php on line 92
+[09-May-2018 07:31:37 Asia/Jakarta] PHP Fatal error:  Call to a member function result() on null in /home/lint9212/public_html/application/views/templates/footer.php on line 92
+[09-May-2018 07:31:44 Asia/Jakarta] PHP Fatal error:  Call to a member function result() on null in /home/lint9212/public_html/application/views/templates/footer.php on line 92
+[09-May-2018 07:31:55 Asia/Jakarta] PHP Fatal error:  Call to a member function result() on null in /home/lint9212/public_html/application/views/templates/footer.php on line 92
+[09-May-2018 07:32:05 Asia/Jakarta] PHP Fatal error:  Call to a member function result() on null in /home/lint9212/public_html/application/views/templates/footer.php on line 92
+[09-May-2018 07:32:13 Asia/Jakarta] PHP Fatal error:  Call to a member function result() on null in /home/lint9212/public_html/application/views/templates/footer.php on line 92
+[09-May-2018 07:33:24 Asia/Jakarta] PHP Fatal error:  Call to a member function result() on null in /home/lint9212/public_html/application/views/templates/footer.php on line 92
+[09-May-2018 07:34:00 Asia/Jakarta] PHP Fatal error:  Call to a member function result() on null in /home/lint9212/public_html/application/views/templates/footer.php on line 92
+[09-May-2018 07:34:06 Asia/Jakarta] PHP Fatal error:  Call to a member function result() on null in /home/lint9212/public_html/application/views/templates/footer.php on line 92
+[09-May-2018 07:34:38 Asia/Jakarta] PHP Fatal error:  Call to a member function result() on null in /home/lint9212/public_html/application/views/templates/footer.php on line 92
+[09-May-2018 07:34:50 Asia/Jakarta] PHP Fatal error:  Call to a member function result() on null in /home/lint9212/public_html/application/views/templates/footer.php on line 92
+[09-May-2018 11:54:16 Asia/Jakarta] PHP Parse error:  syntax error, unexpected ''-linguamedika.com'' (T_CONSTANT_ENCAPSED_STRING) in /home/lint9212/public_html/application/controllers/Contact.php on line 58
+[09-May-2018 11:55:00 Asia/Jakarta] PHP Parse error:  syntax error, unexpected '(' in /home/lint9212/public_html/application/controllers/Contact.php on line 58
+[14-May-2018 09:24:58 Asia/Jakarta] PHP Parse error:  syntax error, unexpected 'public' (T_PUBLIC) in /home/lint9212/public_html/application/controllers/Backend.php on line 3
+[14-May-2018 13:02:44 Asia/Jakarta] PHP Parse error:  syntax error, unexpected 'tidak' (T_STRING), expecting ',' or ';' in /home/lint9212/public_html/application/controllers/User_auth.php on line 52
+[14-May-2018 13:02:57 Asia/Jakarta] PHP Parse error:  syntax error, unexpected 'ada' (T_STRING), expecting ',' or ';' in /home/lint9212/public_html/application/controllers/User_auth.php on line 52
+[14-May-2018 13:03:01 Asia/Jakarta] PHP Parse error:  syntax error, unexpected 'ada' (T_STRING), expecting ',' or ';' in /home/lint9212/public_html/application/controllers/User_auth.php on line 52
+[14-May-2018 16:55:43 Asia/Jakarta] PHP Parse error:  syntax error, unexpected '--' (T_DEC) in /home/lint9212/public_html/application/views/contact.php on line 25
+[15-May-2018 09:29:24 Asia/Jakarta] PHP Parse error:  syntax error, unexpected ')' in /home/lint9212/public_html/application/controllers/Contact.php on line 98
+[15-May-2018 09:30:03 Asia/Jakarta] PHP Parse error:  syntax error, unexpected ';' in /home/lint9212/public_html/application/controllers/Contact.php on line 99
+[15-May-2018 09:30:05 Asia/Jakarta] PHP Parse error:  syntax error, unexpected ';' in /home/lint9212/public_html/application/controllers/Contact.php on line 99
+[15-May-2018 09:31:35 Asia/Jakarta] PHP Parse error:  syntax error, unexpected ')' in /home/lint9212/public_html/application/controllers/Contact.php on line 147
+[16-May-2018 11:05:11 Asia/Jakarta] PHP Parse error:  syntax error, unexpected 'https' (T_STRING) in /home/lint9212/public_html/application/controllers/Contact.php on line 62

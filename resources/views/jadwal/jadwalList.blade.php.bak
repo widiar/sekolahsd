@@ -1,0 +1,134 @@
+@extends('../general/index')
+
+@section('css')
+<link href="{{ asset('assets/vendors/custom/datatables/datatables.bundle.css') }}" rel="stylesheet" type="text/css" />
+<link href="{{'assets/demo/default/base/style.bundle.css'}}" rel="stylesheet" type="text/css" />
+@endsection
+
+@section('js')
+<script src="{{ asset('assets/vendors/custom/datatables/datatables.bundle.js') }}" type="text/javascript"></script>
+<script src="{{ asset('assets/demo/default/custom/crud/forms/widgets/select2.js') }}" type="text/javascript"></script>
+<script src="{{ asset('assets/demo/default/custom/components/forms/widgets/select2.js') }}" type="text/javascript">
+</script>
+<script src="{{asset('assets/demo/default/custom/components/forms/widgets/bootstrap-timepicker.js')}}"
+    type="text/javascript"></script>
+<script type="text/javascript">
+    $(document).ready(function() {
+            $('[name="id_mata_pelajaran"]').change(function() {
+                var id_mata_pelajaran = $(this).val();
+                var id_kelas = $(this).data('id-kelas');
+                var jam = $(this).data('jam');
+                var hari = $(this).data('hari');
+                var _token = $('#base-value').data('csrf-token');
+                console.log(id_mata_pelajaran );
+                $.ajax({
+                    url: '{{ route('jadwalUpdate') }}',
+                    type: 'POST',
+                    data: {
+                        _token: _token,
+                        id_mata_pelajaran: id_mata_pelajaran,
+                        id_kelas: id_kelas,
+                        jam: jam,
+                        hari: hari
+                    },
+                    success: function() {
+                        window.location.reload();
+                    }
+                })
+            })
+        })
+</script>
+@endsection
+{{-- @dd($data) --}}
+@section('body')
+
+<div class="m-grid__item m-grid__item--fluid m-wrapper">
+    <div class="m-subheader ">
+        <div class="d-flex align-items-center">
+            <div class="mr-auto">
+                <h3 class="m-subheader__title text-uppercase m-subheader__title--separator">
+                    {{ $pageTitle }}
+                </h3>
+                {!! $breadcrumb !!}
+            </div>
+        </div>
+    </div>
+
+    <div class="m-content">
+
+        {!! $date_filter !!}
+
+        <div class="m-portlet m-portlet--mobile akses-list">
+            <div class="m-portlet__body">
+                {{-- <div class="btn-group"> --}}
+                    {{-- <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" --}} {{--
+                        aria-haspopup="true" aria-expanded="false">--}}
+                        {{-- Kelas {{ $kelas_select ? $kelas_select->kls_nama : '' }}--}}
+                        {{-- </button>--}}
+                    {{-- <div class="dropdown-menu">--}}
+                        {{-- @foreach($kelas as $row)--}}
+                        {{-- <a class="dropdown-item"
+                            href="{{ route('jadwalList', ['id_kelas'=>$row->id_kelas]) }}">--}}
+                            {{-- {{ $row->kls_nama }}--}}
+                            {{-- </a>--}}
+                        {{-- @endforeach--}}
+                        {{-- </div>--}}
+                    {{-- </div>--}}
+                {{-- <br><br> --}}
+
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <td>Kelas</td>
+                            <th>Jam</th>
+                            <th>Senin</th>
+                            <th>Selasa</th>
+                            <th>Rabu</th>
+                            <th>Kamis</th>
+                            <th>Jumat</th>
+                            <th>Sabtu</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {{-- @foreach($kelas as $row)
+                        @php
+                        foreach($jam as $hour => $convert) {
+                        foreach($hari as $day) {
+                        $id_mata_pelajaran[$hour][$day] = \app\Models\mJadwal
+                        ::where([
+                        'id_kelas' => $row->id_kelas,
+                        'hari' => $day,
+                        'jam' => $hour
+                        ])
+                        ->value('id_mata_pelajaran');
+                        }
+                        }
+                        @endphp
+                        @foreach($jam as $hour => $convert)
+                        <tr>
+                            <td>{{ $row->kls_nama }}</td>
+                            <td>{{ $convert }}</td>
+                            @foreach($hari as $day)
+                            <td>
+                                <select class="form-control" name="id_mata_pelajaran"
+                                    data-id-kelas="{{ $row->id_kelas }}" data-jam="{{ $hour }}" data-hari="{{ $day }}">
+                                    <option value="">Pilih Jadwal</option>
+                                    @foreach($mata_pelajaran as $row_mapel)
+                                    <option value="{{ $row_mapel->id_mata_pelajaran }}" {{ $row_mapel->id_mata_pelajaran
+                                        == $id_mata_pelajaran[$hour][$day] ? 'selected':'' }}>{{ $row_mapel->mpj_nama }}
+                                    </option>
+                                    @endforeach
+                                </select>
+                            </td>
+                            @endforeach
+                        </tr>
+                        @endforeach
+                        @endforeach --}}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+</div>
+@endsection

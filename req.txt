@@ -1,0 +1,21 @@
+1. semua sub menu yang ada kelasnya dibikin sub menu lagi misalnya kelas 1 sub menu 1a, 1b. (rubah db aja)
+JADWAL ✔️ sm SISWA ✔️ tambahin sub_kelas
+
+2. wali kelas punya akses halaman website nya sendiri, misalnya wali kelas 1a cuma bisa akses halaman nilai dan absen untuk kelas 1a saja. ✔️
+
+3. di halaman wali kelas menu absensi bagian form tambah data nya ditambahin absensi untuk hadirnya. jadi gak cuman izin, sakit, sama alpha saja yg ada. ✔️
+
+4. di halaman login siswa, menu laporan anak tulisannya diganti jadi laporan siswa, menu statistik absensi anak diganti jadi statistis absensi siswa. ✔️
+
+5. di bagian laporan siswa itu kayaknya masih ada eror karna disana kan ada keterangan naik kelas sama tidak naik kelasnya, jadi syarat kalo naik kelas itu maximal 3 mata pelajaran aja yg boleh nilainya dibawah KKM. tapi pas aku isi 2 mata pelajaran aja dan nilai nya dibawah kkm semua, keterangannya tetep naik kelas. maunya biar kalo baru sedikit diinputin mata pelajaran tu keterangannya jadi belum muncul. kira kira bisa ga?
+
+6. di halaman kepala sekolah, ditambahin buat menu statistik nilai siswa, menu statistik nilai ada sub menu kelas 1-6, trus masing2 kelas nya punya sub menu lg misalnya sub menu kelas 1a, kelas 1b. kelas lainnya juga gitu.
+untuk tampilannya kayak yg aku kirim di foto itu.
+tinggal table di bawah statistik absen ✔️
+sama statistik nilai ✔️
+
+7. di jadwal dirubah supaya bisa kaya foto jadwal yg aku kirim. supaya bisa milih mata pelajaran pakai kode mata pelajarannya dan keliatan nama mata pelajarannya. supaya bisa juga edit jam mata pelajarannya. ✔️
+
+
+catetan
+statistik nilai bisa error kalau ada mapel di kelas yg belum di isi (misal kelas 3 belum di input mapel nya)
