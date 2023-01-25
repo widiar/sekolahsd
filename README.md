@@ -5,7 +5,7 @@
 
 -   [Intall Git](https://git-scm.com/downloads)
 -   [Install Composer](https://getcomposer.org/download/)
--   Clone ini menggunakan perintah **git clone https://github.com/widiar/south-property.git**
+-   Clone ini menggunakan perintah **git clone https://github.com/widiar/sekolahsd.git**
 -   Setelah di clone, gunakan **composer install**
 -   Buat database bernama **sekolah**
 -   Export sekolah.sql ke db sekolah
