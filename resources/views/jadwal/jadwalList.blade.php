@@ -98,16 +98,6 @@
                         </select>
                     </div>
                 </td>
-                <td>
-                    <div class="form-group m-form__group">
-                        <select class="form-control m-select2" name="mapel_sabtu[]"
-                            placeholder="Pilih Mapel" style="width: 100%">
-                            ${mapel.map(map => 
-                                `<option ${japil[key][5].id_mata_pelajaran == map.id_mata_pelajaran ? `selected`:``} value="${map.id_mata_pelajaran}">${map.mpj_nama}</option>`
-                            )}
-                        </select>
-                    </div>
-                </td>
             </tr>`
             )}`
             return dt;
@@ -170,16 +160,6 @@
                         </select>
                     </div>
                 </td>
-                <td>
-                    <div class="form-group m-form__group">
-                        <select class="form-control m-select2" name="mapel_sabtu[]"
-                            placeholder="Pilih Mapel" style="width: 100%">
-                            ${mapel.map(map => 
-                                `<option value="${map.id_mata_pelajaran}">${map.mpj_nama}</option>`
-                            )}
-                        </select>
-                    </div>
-                </td>
             </tr>`
         let first = `
             <tr>
@@ -231,16 +211,6 @@
                 <td>
                     <div class="form-group m-form__group">
                         <select class="form-control m-select2" name="mapel_jumat[]"
-                            placeholder="Pilih Mapel" style="width: 100%">
-                            ${mapel.map(map => 
-                                `<option value="${map.id_mata_pelajaran}">${map.mpj_nama}</option>`
-                            )}
-                        </select>
-                    </div>
-                </td>
-                <td>
-                    <div class="form-group m-form__group">
-                        <select class="form-control m-select2" name="mapel_sabtu[]"
                             placeholder="Pilih Mapel" style="width: 100%">
                             ${mapel.map(map => 
                                 `<option value="${map.id_mata_pelajaran}">${map.mpj_nama}</option>`
@@ -339,7 +309,6 @@
                                         <th>Rabu</th>
                                         <th>Kamis</th>
                                         <th>Jumat</th>
-                                        <th>Sabtu</th>
                                     </tr>
                                 </thead>
                                 <tbody class="tbl-mapel">
