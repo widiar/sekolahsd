@@ -120,18 +120,18 @@ class Absen extends Controller
         $total_data++;
 
         $data = array();
-
+        $no = 1;
         foreach ($data_list as $key => $row) {
             $key++;
             $id_absen = Main::encrypt($row->id_absen);
 
-            if ($order_type == 'asc') {
-                $no = $key + $start;
-            } else {
-                $no = $total_data - $key - $start;
-            }
+            // if ($order_type == 'asc') {
+            //     $no = $key + $start;
+            // } else {
+            //     $no = $total_data - $key - $start;
+            // }
 
-            $nestedData['no'] = $no;
+            $nestedData['no'] = $no++;
             $nestedData['swa_nis'] = $row->siswa->swa_nis;
             $nestedData['swa_nama'] = $row->siswa->swa_nama;
             // $nestedData['kls_nama'] = $row->siswa->kelas->kls_nama;

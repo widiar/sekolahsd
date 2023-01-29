@@ -285,13 +285,6 @@ class Jadwal extends Controller
                 'id_kelas' => $request->kelas,
                 'jam' => $value
             ]);
-            //sabtu
-            mJadwal::create([
-                'id_mata_pelajaran' => $request->mapel_sabtu[$key],
-                'hari' => 'sabtu',
-                'id_kelas' => $request->kelas,
-                'jam' => $value
-            ]);
         }
         $kls = mKelas::find($request->kelas);
         return redirect()->route('jadwalList', $kls->kls_nama);

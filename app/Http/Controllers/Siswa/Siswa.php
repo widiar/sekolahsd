@@ -127,17 +127,17 @@ class Siswa extends Controller
         $total_data++;
 
         $data = array();
+        $no = 1;
         foreach ($data_list as $key => $row) {
             $key++;
             $id_siswa = Main::encrypt($row->id_siswa);
 
-            if ($order_type == 'asc') {
-                $no = $key + $start;
-            } else {
-                $no = $total_data - $key - $start;
-            }
-
-            $nestedData['no'] = $no;
+            // if ($order_type == 'asc') {
+            //     $no = $key + $start;
+            // } else {
+            //     $no = $total_data - $key - $start;
+            // }
+            $nestedData['no'] = $no++;
             $nestedData['swa_nis'] = $row->swa_nis;
             $nestedData['swa_nama'] = $row->swa_nama;
             $nestedData['kls_nama'] = $row->kelas->kls_nama;

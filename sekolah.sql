@@ -8,24 +8,249 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 DROP TABLE IF EXISTS `absen`;
+CREATE TABLE `absen` (
+  `id_absen` int(20) NOT NULL AUTO_INCREMENT,
+  `abs_nomber` varchar(20) DEFAULT NULL,
+  `id_siswa` varchar(20) DEFAULT NULL,
+  `id_kelas` varchar(20) DEFAULT NULL,
+  `abs_tanggal` varchar(200) DEFAULT NULL,
+  `abs_keterangan` varchar(200) NOT NULL,
+  `created_at` datetime DEFAULT NULL,
+  `updated_at` datetime DEFAULT NULL,
+  `deleted_at` datetime DEFAULT NULL,
+  PRIMARY KEY (`id_absen`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
 DROP TABLE IF EXISTS `guru`;
+CREATE TABLE `guru` (
+  `id_guru` int(11) NOT NULL AUTO_INCREMENT,
+  `gru_nip` varchar(200) DEFAULT NULL,
+  `gru_nama` varchar(200) DEFAULT NULL,
+  `id_mata_pelajaran` varchar(200) DEFAULT NULL,
+  `gru_alamat` varchar(200) DEFAULT NULL,
+  `created_at` datetime DEFAULT NULL,
+  `updated_at` datetime DEFAULT NULL,
+  `deleted_at` datetime DEFAULT NULL,
+  PRIMARY KEY (`id_guru`)
+) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8mb4;
+
 DROP TABLE IF EXISTS `jadwal`;
+CREATE TABLE `jadwal` (
+  `id_jadwal` int(11) NOT NULL AUTO_INCREMENT,
+  `id_mata_pelajaran` varchar(20) DEFAULT NULL,
+  `hari` varchar(20) DEFAULT NULL,
+  `id_kelas` varchar(20) DEFAULT NULL,
+  `jam` varchar(20) DEFAULT NULL,
+  `jam_dari` varchar(20) DEFAULT NULL,
+  `jam_ke` varchar(20) DEFAULT NULL,
+  `created_at` datetime DEFAULT NULL,
+  `updated_at` datetime DEFAULT NULL,
+  `deleted_at` datetime DEFAULT NULL,
+  PRIMARY KEY (`id_jadwal`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
 DROP TABLE IF EXISTS `kelas`;
+CREATE TABLE `kelas` (
+  `id_kelas` int(11) NOT NULL AUTO_INCREMENT,
+  `kls_nama` varchar(200) DEFAULT NULL,
+  `kls_jumlah_siswa` varchar(200) DEFAULT NULL,
+  `id_guru` varchar(20) DEFAULT NULL,
+  `swa_id_ketua` varchar(20) DEFAULT NULL,
+  `swa_id_wakil` varchar(20) DEFAULT NULL,
+  `swa_id_sekretaris` varchar(20) DEFAULT NULL,
+  `swa_id_bendahara` varchar(20) DEFAULT NULL,
+  `created_at` datetime DEFAULT NULL,
+  `updated_at` datetime DEFAULT NULL,
+  `deleted_at` datetime DEFAULT NULL,
+  `sub_kelas` char(1) DEFAULT 'A',
+  PRIMARY KEY (`id_kelas`)
+) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=utf8mb4;
+
 DROP TABLE IF EXISTS `laporan_anak`;
+CREATE TABLE `laporan_anak` (
+  `id_laporan_anak` int(11) NOT NULL AUTO_INCREMENT,
+  `id_siswa` varchar(200) DEFAULT NULL,
+  `id_mata_pelajaran` varchar(200) DEFAULT NULL,
+  `lpa_nilai` varchar(200) DEFAULT NULL,
+  `lpa_keterangan_guru` varchar(200) DEFAULT NULL,
+  `created_at` datetime DEFAULT NULL,
+  `updated_at` datetime DEFAULT NULL,
+  `deleted_at` datetime DEFAULT NULL,
+  PRIMARY KEY (`id_laporan_anak`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
 DROP TABLE IF EXISTS `laporan_siswa`;
+CREATE TABLE `laporan_siswa` (
+  `id_laporan_siswa` int(11) NOT NULL AUTO_INCREMENT,
+  `id_kelas` varchar(20) DEFAULT NULL,
+  `lps_jumlah_siswa` varchar(200) DEFAULT NULL,
+  `lps_lulus` varchar(200) DEFAULT NULL,
+  `lps_tidak_lulus` varchar(200) DEFAULT NULL,
+  `created_at` datetime DEFAULT NULL,
+  `updated_at` datetime DEFAULT NULL,
+  `deleted_at` datetime DEFAULT NULL,
+  PRIMARY KEY (`id_laporan_siswa`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
 DROP TABLE IF EXISTS `mata_pelajaran`;
+CREATE TABLE `mata_pelajaran` (
+  `id_mata_pelajaran` int(11) NOT NULL AUTO_INCREMENT,
+  `mpj_kode` varchar(200) DEFAULT NULL,
+  `mpj_nama` varchar(200) DEFAULT NULL,
+  `mpj_kelas` varchar(200) DEFAULT NULL,
+  `id_guru` varchar(200) DEFAULT NULL,
+  `mpj_nilai_lulus` int(20) DEFAULT NULL,
+  `created_at` datetime DEFAULT NULL,
+  `updated_at` datetime DEFAULT NULL,
+  `deleted_at` datetime DEFAULT NULL,
+  PRIMARY KEY (`id_mata_pelajaran`)
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4;
+
 DROP TABLE IF EXISTS `migrations`;
+CREATE TABLE `migrations` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `migration` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `batch` int(11) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
 DROP TABLE IF EXISTS `nilai`;
+CREATE TABLE `nilai` (
+  `id_nilai` int(20) NOT NULL AUTO_INCREMENT,
+  `id_absen` varchar(20) DEFAULT NULL,
+  `id_siswa` varchar(20) DEFAULT NULL,
+  `id_kelas` varchar(20) DEFAULT NULL,
+  `id_mata_pelajaran` varchar(20) DEFAULT NULL,
+  `nilai` varchar(20) DEFAULT NULL,
+  `created_at` datetime DEFAULT NULL,
+  `updated_at` datetime DEFAULT NULL,
+  `deleted_at` datetime DEFAULT NULL,
+  PRIMARY KEY (`id_nilai`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
 DROP TABLE IF EXISTS `orang_tua`;
+CREATE TABLE `orang_tua` (
+  `id_orang_tua` int(11) NOT NULL AUTO_INCREMENT,
+  `ort_nama_ayah` varchar(200) DEFAULT NULL,
+  `ort_nama_ibu` varchar(200) DEFAULT NULL,
+  `id_siswa` varchar(20) DEFAULT NULL,
+  `username` varchar(255) DEFAULT NULL,
+  `password` varchar(255) DEFAULT NULL,
+  `ort_alamat` varchar(200) DEFAULT NULL,
+  `created_at` datetime DEFAULT NULL,
+  `updated_at` datetime DEFAULT NULL,
+  `deleted_at` datetime DEFAULT NULL,
+  PRIMARY KEY (`id_orang_tua`)
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4;
+
 DROP TABLE IF EXISTS `password_resets`;
+CREATE TABLE `password_resets` (
+  `email` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `token` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  KEY `password_resets_email_index` (`email`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
 DROP TABLE IF EXISTS `province`;
+CREATE TABLE `province` (
+  `id_province` int(11) NOT NULL AUTO_INCREMENT,
+  `province_name` varchar(200) DEFAULT NULL,
+  PRIMARY KEY (`id_province`)
+) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8mb4;
+
 DROP TABLE IF EXISTS `sessions`;
+CREATE TABLE `sessions` (
+  `id` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `user_id` int(10) unsigned DEFAULT NULL,
+  `ip_address` varchar(45) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `user_agent` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `payload` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `last_activity` int(11) NOT NULL,
+  UNIQUE KEY `sessions_id_unique` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
 DROP TABLE IF EXISTS `siswa`;
+CREATE TABLE `siswa` (
+  `id_siswa` int(11) NOT NULL AUTO_INCREMENT,
+  `swa_nis` varchar(200) DEFAULT NULL,
+  `swa_nama` varchar(200) DEFAULT NULL,
+  `id_kelas` varchar(20) DEFAULT NULL,
+  `swa_alamat` varchar(200) DEFAULT NULL,
+  `created_at` datetime DEFAULT NULL,
+  `updated_at` datetime DEFAULT NULL,
+  `deleted_at` datetime DEFAULT NULL,
+  PRIMARY KEY (`id_siswa`)
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4;
+
 DROP TABLE IF EXISTS `subdistrict`;
+CREATE TABLE `subdistrict` (
+  `id_subdistrict` int(11) NOT NULL AUTO_INCREMENT,
+  `id_province` int(11) DEFAULT NULL,
+  `id_city` int(11) DEFAULT NULL,
+  `subdistrict_name` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`id_subdistrict`) USING BTREE
+) ENGINE=InnoDB AUTO_INCREMENT=6995 DEFAULT CHARSET=utf8mb4;
+
 DROP TABLE IF EXISTS `tb_karyawan`;
+CREATE TABLE `tb_karyawan` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `kode_karyawan` varchar(100) CHARACTER SET latin1 DEFAULT NULL,
+  `nama_karyawan` varchar(255) DEFAULT NULL,
+  `alamat_karyawan` text CHARACTER SET latin1 DEFAULT NULL,
+  `telp_karyawan` varchar(30) CHARACTER SET latin1 DEFAULT NULL,
+  `posisi_karyawan` varchar(20) CHARACTER SET latin1 DEFAULT NULL,
+  `email_karyawan` varchar(255) CHARACTER SET latin1 DEFAULT NULL,
+  `foto_karyawan` varchar(255) CHARACTER SET latin1 DEFAULT NULL,
+  `created_at` datetime DEFAULT NULL,
+  `updated_at` datetime DEFAULT NULL,
+  `deleted_at` datetime DEFAULT NULL,
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE=InnoDB AUTO_INCREMENT=126 DEFAULT CHARSET=utf8;
+
 DROP TABLE IF EXISTS `tb_user`;
+CREATE TABLE `tb_user` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `id_karyawan` int(11) DEFAULT NULL,
+  `id_user_role` int(11) DEFAULT NULL,
+  `username` varchar(20) DEFAULT NULL,
+  `password` varchar(100) DEFAULT NULL,
+  `nama` varchar(255) DEFAULT NULL,
+  `inisial_karyawan` varchar(10) DEFAULT NULL,
+  `id_lokasi` text DEFAULT NULL,
+  `created_at` datetime DEFAULT NULL,
+  `updated_at` datetime DEFAULT NULL,
+  `deleted_at` datetime DEFAULT NULL,
+  PRIMARY KEY (`id`) USING BTREE,
+  KEY `id_karyawan` (`id_karyawan`) USING BTREE,
+  KEY `id_user_role` (`id_user_role`) USING BTREE
+) ENGINE=InnoDB AUTO_INCREMENT=45 DEFAULT CHARSET=latin1;
+
 DROP TABLE IF EXISTS `tb_user_role`;
+CREATE TABLE `tb_user_role` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `role_name` varchar(255) DEFAULT NULL,
+  `role_keterangan` text DEFAULT NULL,
+  `role_akses` text DEFAULT NULL,
+  `updated_at` datetime DEFAULT NULL,
+  `created_at` datetime DEFAULT NULL,
+  `deleted_at` datetime DEFAULT NULL,
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE=InnoDB AUTO_INCREMENT=25 DEFAULT CHARSET=latin1;
+
 DROP TABLE IF EXISTS `users`;
+CREATE TABLE `users` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `name` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `email` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `email_verified_at` timestamp NULL DEFAULT NULL,
+  `password` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `remember_token` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `users_email_unique` (`email`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
 
 
 INSERT INTO `guru` (`id_guru`, `gru_nip`, `gru_nama`, `id_mata_pelajaran`, `gru_alamat`, `created_at`, `updated_at`, `deleted_at`) VALUES
@@ -320,7 +545,8 @@ INSERT INTO `subdistrict` (`id_subdistrict`, `id_province`, `id_city`, `subdistr
 (176, 32, 12, 'Ampek Nagari (IV Nagari )'),
 (177, 32, 12, 'Banuhampu'),
 (178, 32, 12, 'Baso'),
-(179, 32, 12, 'Candung'),
+(179, 32, 12, 'Candung');
+INSERT INTO `subdistrict` (`id_subdistrict`, `id_province`, `id_city`, `subdistrict_name`) VALUES
 (180, 32, 12, 'IV Angkat Candung (Ampek Angkek)'),
 (181, 32, 12, 'IV Koto (Ampek Koto)'),
 (182, 32, 12, 'Kamang Magek'),
@@ -436,7 +662,8 @@ INSERT INTO `subdistrict` (`id_subdistrict`, `id_province`, `id_city`, `subdistr
 (292, 18, 21, 'Labuhan Ratu'),
 (293, 18, 21, 'Langkapura'),
 (294, 18, 21, 'Panjang'),
-(295, 18, 21, 'Rajabasa'),
+(295, 18, 21, 'Rajabasa');
+INSERT INTO `subdistrict` (`id_subdistrict`, `id_province`, `id_city`, `subdistrict_name`) VALUES
 (296, 18, 21, 'Sukabumi'),
 (297, 18, 21, 'Sukarame'),
 (298, 18, 21, 'Tanjung Karang Barat'),
@@ -565,8 +792,7 @@ INSERT INTO `subdistrict` (`id_subdistrict`, `id_province`, `id_city`, `subdistr
 (421, 29, 26, 'Tinangkung'),
 (422, 29, 26, 'Tinangkung Selatan'),
 (423, 29, 26, 'Tinangkung Utara'),
-(424, 29, 26, 'Totikum (Totikung)');
-INSERT INTO `subdistrict` (`id_subdistrict`, `id_province`, `id_city`, `subdistrict_name`) VALUES
+(424, 29, 26, 'Totikum (Totikung)'),
 (425, 29, 26, 'Totikum Selatan'),
 (426, 2, 27, 'Bakam'),
 (427, 2, 27, 'Belinyu'),
@@ -815,7 +1041,8 @@ INSERT INTO `subdistrict` (`id_subdistrict`, `id_province`, `id_city`, `subdistr
 (670, 28, 47, 'Soppeng Riaja'),
 (671, 28, 47, 'Tanete Riaja'),
 (672, 28, 47, 'Tanete Rilau'),
-(673, 17, 48, 'Batam Kota'),
+(673, 17, 48, 'Batam Kota');
+INSERT INTO `subdistrict` (`id_subdistrict`, `id_province`, `id_city`, `subdistrict_name`) VALUES
 (674, 17, 48, 'Batu Aji'),
 (675, 17, 48, 'Batu Ampar'),
 (676, 17, 48, 'Belakang Padang'),
@@ -1151,8 +1378,7 @@ INSERT INTO `subdistrict` (`id_subdistrict`, `id_province`, `id_city`, `subdistr
 (1006, 10, 76, 'Jiken'),
 (1007, 10, 76, 'Kedungtuban'),
 (1008, 10, 76, 'Kradenan'),
-(1009, 10, 76, 'Kunduran');
-INSERT INTO `subdistrict` (`id_subdistrict`, `id_province`, `id_city`, `subdistrict_name`) VALUES
+(1009, 10, 76, 'Kunduran'),
 (1010, 10, 76, 'Ngawen'),
 (1011, 10, 76, 'Randublatung'),
 (1012, 10, 76, 'Sambong'),
@@ -1300,7 +1526,8 @@ INSERT INTO `subdistrict` (`id_subdistrict`, `id_province`, `id_city`, `subdistr
 (1154, 11, 86, 'Grujugan'),
 (1155, 11, 86, 'Jambe Sari Darus Sholah'),
 (1156, 11, 86, 'Klabang'),
-(1157, 11, 86, 'Maesan'),
+(1157, 11, 86, 'Maesan');
+INSERT INTO `subdistrict` (`id_subdistrict`, `id_province`, `id_city`, `subdistrict_name`) VALUES
 (1158, 11, 86, 'Pakem'),
 (1159, 11, 86, 'Prajekan'),
 (1160, 11, 86, 'Pujer'),
@@ -1535,8 +1762,7 @@ INSERT INTO `subdistrict` (`id_subdistrict`, `id_province`, `id_city`, `subdistr
 (1389, 9, 103, 'Jatinagara'),
 (1390, 9, 103, 'Kawali'),
 (1391, 9, 103, 'Lakbok'),
-(1392, 9, 103, 'Lumbung');
-INSERT INTO `subdistrict` (`id_subdistrict`, `id_province`, `id_city`, `subdistrict_name`) VALUES
+(1392, 9, 103, 'Lumbung'),
 (1393, 9, 103, 'Pamarican'),
 (1394, 9, 103, 'Panawangan'),
 (1395, 9, 103, 'Panjalu'),
@@ -1739,7 +1965,8 @@ INSERT INTO `subdistrict` (`id_subdistrict`, `id_province`, `id_city`, `subdistr
 (1592, 32, 116, 'Padang Laweh'),
 (1593, 32, 116, 'Pulau Punjung'),
 (1594, 32, 116, 'Sembilan Koto (IX Koto)'),
-(1595, 32, 116, 'Sitiung'),
+(1595, 32, 116, 'Sitiung');
+INSERT INTO `subdistrict` (`id_subdistrict`, `id_province`, `id_city`, `subdistrict_name`) VALUES
 (1596, 32, 116, 'Sungai Rumbai'),
 (1597, 32, 116, 'Timpeh'),
 (1598, 32, 116, 'Tiumang'),
@@ -2279,8 +2506,7 @@ INSERT INTO `subdistrict` (`id_subdistrict`, `id_province`, `id_city`, `subdistr
 (2132, 8, 156, 'Jelutung'),
 (2133, 8, 156, 'Kota Baru'),
 (2134, 8, 156, 'Pasar Jambi'),
-(2135, 8, 156, 'Pelayangan');
-INSERT INTO `subdistrict` (`id_subdistrict`, `id_province`, `id_city`, `subdistrict_name`) VALUES
+(2135, 8, 156, 'Pelayangan'),
 (2136, 8, 156, 'Telanaipura'),
 (2137, 24, 157, 'Airu'),
 (2138, 24, 157, 'Demta'),
@@ -2524,7 +2750,8 @@ INSERT INTO `subdistrict` (`id_subdistrict`, `id_province`, `id_city`, `subdistr
 (2376, 1, 170, 'Selat'),
 (2377, 1, 170, 'Sidemen'),
 (2378, 9, 171, 'Banyusari'),
-(2379, 9, 171, 'Batujaya'),
+(2379, 9, 171, 'Batujaya');
+INSERT INTO `subdistrict` (`id_subdistrict`, `id_province`, `id_city`, `subdistrict_name`) VALUES
 (2380, 9, 171, 'Ciampel'),
 (2381, 9, 171, 'Cibuaya'),
 (2382, 9, 171, 'Cikampek'),
@@ -3284,8 +3511,7 @@ INSERT INTO `subdistrict` (`id_subdistrict`, `id_province`, `id_city`, `subdistr
 (3136, 11, 222, 'Sukodadi'),
 (3137, 11, 222, 'Sukorame'),
 (3138, 11, 222, 'Tikung'),
-(3139, 11, 222, 'Turi');
-INSERT INTO `subdistrict` (`id_subdistrict`, `id_province`, `id_city`, `subdistrict_name`) VALUES
+(3139, 11, 222, 'Turi'),
 (3140, 18, 223, 'Air Hitam'),
 (3141, 18, 223, 'Balik Bukit'),
 (3142, 18, 223, 'Bandar Negeri Suoh'),
@@ -3434,7 +3660,8 @@ INSERT INTO `subdistrict` (`id_subdistrict`, `id_province`, `id_city`, `subdistr
 (3285, 21, 230, 'Langsa Kota'),
 (3286, 21, 230, 'Langsa Lama'),
 (3287, 21, 230, 'Langsa Timur'),
-(3288, 24, 231, 'Balingga'),
+(3288, 24, 231, 'Balingga');
+INSERT INTO `subdistrict` (`id_subdistrict`, `id_province`, `id_city`, `subdistrict_name`) VALUES
 (3289, 24, 231, 'Dimba'),
 (3290, 24, 231, 'Gamelia'),
 (3291, 24, 231, 'Kuyawage'),
@@ -3740,8 +3967,7 @@ INSERT INTO `subdistrict` (`id_subdistrict`, `id_province`, `id_city`, `subdistr
 (3591, 28, 254, 'Manggala'),
 (3592, 28, 254, 'Mariso'),
 (3593, 28, 254, 'Panakkukang'),
-(3594, 28, 254, 'Rappocini');
-INSERT INTO `subdistrict` (`id_subdistrict`, `id_province`, `id_city`, `subdistrict_name`) VALUES
+(3594, 28, 254, 'Rappocini'),
 (3595, 28, 254, 'Tallo'),
 (3596, 28, 254, 'Tamalanrea'),
 (3597, 28, 254, 'Tamalate'),
@@ -4435,8 +4661,7 @@ INSERT INTO `subdistrict` (`id_subdistrict`, `id_province`, `id_city`, `subdistr
 (4285, 24, 303, 'Iniye'),
 (4286, 24, 303, 'Kegayem'),
 (4287, 24, 303, 'Kenyam'),
-(4288, 24, 303, 'Kilmid');
-INSERT INTO `subdistrict` (`id_subdistrict`, `id_province`, `id_city`, `subdistrict_name`) VALUES
+(4288, 24, 303, 'Kilmid'),
 (4289, 24, 303, 'Kora'),
 (4290, 24, 303, 'Koroptak'),
 (4291, 24, 303, 'Krepkuri'),
@@ -4655,7 +4880,8 @@ INSERT INTO `subdistrict` (`id_subdistrict`, `id_province`, `id_city`, `subdistr
 (4504, 33, 316, 'Belitang III'),
 (4505, 33, 316, 'Belitang Jaya'),
 (4506, 33, 316, 'Belitang Madang Raya'),
-(4507, 33, 316, 'Belitang Mulya'),
+(4507, 33, 316, 'Belitang Mulya');
+INSERT INTO `subdistrict` (`id_subdistrict`, `id_province`, `id_city`, `subdistrict_name`) VALUES
 (4508, 33, 316, 'Buay Madang'),
 (4509, 33, 316, 'Buay Madang Timur'),
 (4510, 33, 316, 'Buay Pemuka Bangsa Raja'),
@@ -5939,8 +6165,7 @@ INSERT INTO `subdistrict` (`id_subdistrict`, `id_province`, `id_city`, `subdistr
 (5788, 5, 419, 'Ngaglik'),
 (5789, 5, 419, 'Ngemplak'),
 (5790, 5, 419, 'Pakem'),
-(5791, 5, 419, 'Prambanan');
-INSERT INTO `subdistrict` (`id_subdistrict`, `id_province`, `id_city`, `subdistrict_name`) VALUES
+(5791, 5, 419, 'Prambanan'),
 (5792, 5, 419, 'Seyegan'),
 (5793, 5, 419, 'Sleman'),
 (5794, 5, 419, 'Tempel'),
@@ -6111,7 +6336,8 @@ INSERT INTO `subdistrict` (`id_subdistrict`, `id_province`, `id_city`, `subdistr
 (5959, 9, 430, 'Sukalarang'),
 (5960, 9, 430, 'Sukaraja'),
 (5961, 9, 430, 'Surade'),
-(5962, 9, 430, 'Tegal Buleud'),
+(5962, 9, 430, 'Tegal Buleud');
+INSERT INTO `subdistrict` (`id_subdistrict`, `id_province`, `id_city`, `subdistrict_name`) VALUES
 (5963, 9, 430, 'Waluran'),
 (5964, 9, 430, 'Warung Kiara'),
 (5965, 9, 431, 'Baros'),
@@ -6998,8 +7224,7 @@ INSERT INTO `subdistrict` (`id_subdistrict`, `id_province`, `id_city`, `subdistr
 (6846, 28, 493, 'Pammana'),
 (6847, 28, 493, 'Penrang'),
 (6848, 28, 493, 'Pitumpanua'),
-(6849, 28, 493, 'Sabbang Paru');
-INSERT INTO `subdistrict` (`id_subdistrict`, `id_province`, `id_city`, `subdistrict_name`) VALUES
+(6849, 28, 493, 'Sabbang Paru'),
 (6850, 28, 493, 'Sajoanging'),
 (6851, 28, 493, 'Takkalalla'),
 (6852, 28, 493, 'Tana Sitolo'),
